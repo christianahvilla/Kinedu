@@ -31,8 +31,7 @@ class ActivityAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
-        //holder.activity_image.setImageDrawable(getBmpImage(activityList[position].thumbnail))
-        Picasso.with(context).load(activityList[position].thumbnail).resize(600, 600).into(holder.activity_image)
+        Picasso.with(context).load(activityList[position].thumbnail).resize(800, 800).into(holder.activity_image)
         holder.activity_title.text = activityList[position].name
         holder.activity_description.text = activityList[position].purpose
     }
