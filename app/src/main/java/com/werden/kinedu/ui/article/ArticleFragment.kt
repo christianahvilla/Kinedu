@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerFragmentComponent
 import com.werden.kinedu.di.module.FragmentModule
 import com.werden.kinedu.model.article.ArticleData
 import com.werden.kinedu.model.article.Articles
+import com.werden.kinedu.ui.activity.ActivityAdapter
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.progress_bar.*
 import kotlinx.android.synthetic.main.recycler_view.*
@@ -47,7 +49,9 @@ class ArticleFragment : Fragment(), ArticleContract.View {
     }
 
     override fun loadDataSuccess(list: Articles) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var articleAdapter = ArticleAdapter(activity!!.applicationContext, list.data.articles.toMutableList())
+        recycler_content!!.layoutManager = LinearLayoutManager(activity)
+        recycler_content!!.adapter = articleAdapter
     }
 
     private fun injectDependency() {
@@ -78,7 +82,7 @@ class ArticleFragment : Fragment(), ArticleContract.View {
         }
     }
 
-    override fun showErrorMessage() {
-        //Toast.makeText(view?.context, ERROR, Toast.LENGTH_SHORT).show()
+    override fun showErrorMessage(error: String) {
+        Toast.makeText(view?.context, ERROR, Toast.LENGTH_SHORT).show()
     }
 }

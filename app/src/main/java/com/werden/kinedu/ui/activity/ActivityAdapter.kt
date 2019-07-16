@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.werden.kinedu.R
 import com.werden.kinedu.model.activity.Activity
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import java.io.InputStream
 import java.net.URL
 
@@ -18,8 +19,6 @@ import java.net.URL
 class ActivityAdapter(private val context: Context,
                            private val activityList: MutableList<Activity>):
     RecyclerView.Adapter<ActivityAdapter.ActivityViewHolder>(){
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.card_activity, parent, false)
@@ -31,17 +30,10 @@ class ActivityAdapter(private val context: Context,
     }
 
     override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
-        Picasso.with(context).load(activityList[position].thumbnail).resize(800, 800).into(holder.activity_image)
+        Picasso.get().load(activityList[position].thumbnail).transform(RoundedCornersTransformation(25, 25)).resize(800, 800).into(holder.activity_image)
         holder.activity_title.text = activityList[position].name
         holder.activity_description.text = activityList[position].purpose
     }
-
-    private fun getBmpImage(url: String):  Drawable{
-        val `is` = URL(url).content as InputStream
-        return Drawable.createFromStream(`is`, "src name")
-    }
-
-
 
     class ActivityViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val activity_image: ImageView = itemView.findViewById(R.id.activity_image)

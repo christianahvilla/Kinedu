@@ -8,11 +8,6 @@
 
     <include layout="@layout/progress_bar"/>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefresh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include layout="@layout/recycler_view"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <include layout="@layout/recycler_view"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

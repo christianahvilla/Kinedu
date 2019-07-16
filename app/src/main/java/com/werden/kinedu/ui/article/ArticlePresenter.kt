@@ -8,7 +8,6 @@ import io.reactivex.schedulers.Schedulers
 
 class ArticlePresenter: ArticleContract.Presenter {
 
-    //private val subscriptions = CompositeDisposable()
     private lateinit var view: ArticleContract.View
     private val subscriptions = CompositeDisposable()
     private val api: ApiServiceInterface = ApiServiceInterface.create()
@@ -21,14 +20,13 @@ class ArticlePresenter: ArticleContract.Presenter {
                 listArticle?.let { view.loadDataSuccess(it) }
             }, { error ->
                 view.showProgress(false)
-                view.showErrorMessage()
+                view.showErrorMessage(error.localizedMessage)
             })
 
         subscriptions.add(subscribe)
     }
 
     override fun subscribe() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun unsubscribe() {

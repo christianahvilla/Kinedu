@@ -25,10 +25,15 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
 
     override fun showActivityFragment() {
         if (supportFragmentManager.findFragmentByTag(ActivityFragment.TAG) == null) {
+//            supportFragmentManager.beginTransaction()
+//                .addToBackStack(null)
+//                .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
+//                .replace(R.id.frame, ActivityFragment().newInstance(), ActivityFragment.TAG)
+//                .commit()
             supportFragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
-                .replace(R.id.frame, ActivityFragment().newInstance(), ActivityFragment.TAG)
+                .disallowAddToBackStack()
+                .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
+                .replace(R.id.frame, ArticleFragment().newInstance(), ArticleFragment.TAG)
                 .commit()
         }
     }
@@ -66,9 +71,9 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         FADE;
 
         fun getAnimPair(): Pair<Int, Int> {
-            when(this) {
-                SLIDE -> return Pair(R.anim.slide_left, R.anim.slide_right)
-                FADE -> return Pair(R.anim.fade_in, R.anim.fade_out)
+            return when(this) {
+                SLIDE -> Pair(R.anim.slide_left, R.anim.slide_right)
+                FADE -> Pair(R.anim.fade_in, R.anim.fade_out)
             }
 
             return Pair(R.anim.slide_left, R.anim.slide_right)

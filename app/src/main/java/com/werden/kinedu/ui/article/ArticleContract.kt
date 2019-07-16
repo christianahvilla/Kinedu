@@ -7,7 +7,7 @@ class ArticleContract {
 
     interface View: BaseContract.View {
         fun showProgress(show: Boolean)
-        fun showErrorMessage()
+        fun showErrorMessage(error: String)
         fun loadDataSuccess(list: Articles)
     }
 
