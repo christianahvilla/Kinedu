@@ -1,6 +1,8 @@
 package com.werden.kinedu.di.module
 
 import android.app.Activity
+import com.werden.kinedu.ui.home.HomeContract
+import com.werden.kinedu.ui.home.HomePresenter
 import dagger.Module
 import dagger.Provides
 

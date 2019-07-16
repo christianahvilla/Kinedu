@@ -1,6 +1,7 @@
 package com.werden.kinedu.di.component
 
 import com.werden.kinedu.di.module.HomeModule
+import com.werden.kinedu.ui.home.HomeActivity
 import dagger.Component
 
 /**

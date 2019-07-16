@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="primaryColor">#311b92</color>
+    <color name="primaryLightColor">#6746c3</color>
+    <color name="primaryDarkColor">#000063</color>
+    <color name="secondaryColor">#d81b60</color>
+    <color name="secondaryLightColor">#ff5c8d</color>
+    <color name="secondaryDarkColor">#a00037</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <!-- Colors for dashboard -->
+    <color name="deepPurple">#7c4dff</color>
+    <color name="yellow">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkBlue">#23283a</color>
+    <color name="testColorBlue">#152b38</color>
+    <color name="pink">#fe104d</color>
+    <color name="deepBlue">#106FFE</color>
+
+    <color name="blackOverlay">#66000000</color>
+
 </resources>

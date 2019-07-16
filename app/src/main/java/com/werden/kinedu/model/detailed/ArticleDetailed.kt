@@ -1,5 +1,7 @@
 package com.werden.kinedu.model.detailed
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Class which provides a model for meta data
  * @constructor Sets all properties of the article detailed
@@ -12,11 +14,18 @@ package com.werden.kinedu.model.detailed
  */
 
 data class ArticleDetailed(
+    @SerializedName("id")
     val id: Int,
+    @SerializedName("title")
     val title: String,
+    @SerializedName("picture")
     val picture: String,
+    @SerializedName("link")
     val link: String,
+    @SerializedName("area_id")
     val area_id: Int,
+    @SerializedName("body")
     val body: String,
+    @SerializedName("faved")
     val faved: Boolean
 )

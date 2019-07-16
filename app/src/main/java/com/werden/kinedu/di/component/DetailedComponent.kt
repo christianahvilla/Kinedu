@@ -13,6 +13,6 @@ interface DetailedComponent {
      * Injects required dependencies into the specified Activity.
      * @param detailedActivity in which to inject the dependencies
      */
-    fun inject(detailedActivity: DetailedActivity)
+    //fun inject(detailedActivity: DetailedActivity)
 
 }

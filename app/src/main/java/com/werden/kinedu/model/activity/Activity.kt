@@ -1,5 +1,7 @@
 package com.werden.kinedu.model.activity
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Class which provides a model for meta data
  * @constructor Sets all properties of the meta data
@@ -18,16 +20,28 @@ package com.werden.kinedu.model.activity
  */
 
 data class Activity (
+    @SerializedName("id")
     val id: Int,
+    @SerializedName("name")
     val name: String,
+    @SerializedName("age")
     val age: Int,
-    val age_group: Int,
+    @SerializedName("age_group")
+    val age_group: String,
+    @SerializedName("activity_type")
     val activity_type: String,
+    @SerializedName("is_holiday")
     val is_holiday: Boolean,
+    @SerializedName("domain_id")
     val domain_id: Int,
+    @SerializedName("area_id")
     val area_id: Int,
+    @SerializedName("purpose")
     val purpose: String,
+    @SerializedName("thumbnail")
     val thumbnail: String,
+    @SerializedName("active_milestones")
     val active_milestones: Int,
+    @SerializedName("completed_milestones")
     val completed_milestones: Int
 )
