@@ -17,7 +17,7 @@ class HomePresenter: HomeContract.Presenter{
 
     override fun attach(view: HomeContract.View) {
         this.view = view
-        view.showActivityFragment()
+        view.showTabHost()
     }
 
 }

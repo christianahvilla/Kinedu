@@ -6,7 +6,8 @@ import com.werden.kinedu.ui.article.ArticleFragment
 import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerHomeComponent
 import com.werden.kinedu.di.module.HomeModule
-import com.werden.kinedu.ui.activity.ActivityFragment
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.toolbar_layout.*
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(), HomeContract.View {
@@ -21,19 +22,17 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         injectDependency()
 
         presenter.attach(this)
+
+        setSupportActionBar(toolBar)
     }
 
+    /*
     override fun showActivityFragment() {
         if (supportFragmentManager.findFragmentByTag(ActivityFragment.TAG) == null) {
-//            supportFragmentManager.beginTransaction()
-//                .addToBackStack(null)
-//                .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
-//                .replace(R.id.frame, ActivityFragment().newInstance(), ActivityFragment.TAG)
-//                .commit()
             supportFragmentManager.beginTransaction()
-                .disallowAddToBackStack()
-                .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
-                .replace(R.id.frame, ArticleFragment().newInstance(), ArticleFragment.TAG)
+                .addToBackStack(null)
+                .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
+                .replace(R.id.frame, ActivityFragment().newInstance(), ActivityFragment.TAG)
                 .commit()
         }
     }
@@ -44,6 +43,14 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
             .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
             .replace(R.id.frame, ArticleFragment().newInstance(), ArticleFragment.TAG)
             .commit()
+    }
+    */
+
+    override fun showTabHost() {
+        var adapter = HomeViewPager(supportFragmentManager)
+        view_pager.adapter = adapter
+
+        tab_layout.setupWithViewPager(view_pager)
     }
 
     private fun injectDependency() {
