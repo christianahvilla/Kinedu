@@ -1,6 +1,8 @@
 package com.werden.kinedu.di.component
 
 import com.werden.kinedu.di.module.FragmentModule
+import com.werden.kinedu.ui.activity.ActivityFragment
+import com.werden.kinedu.ui.article.ArticleFragment
 import dagger.Component
 
 /**

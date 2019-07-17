@@ -11,7 +11,7 @@ import dagger.Provides
 @Module
 // Safe here as we are dealing with a Dagger 2 module
 @Suppress("unused")
-class DetailedModule {
+class DetailedModule(private var activity: Activity) {
 
     /**
      * Provides the Application Activity
@@ -26,10 +26,10 @@ class DetailedModule {
      * Provides the Application DetailedActivity
      * @return the DetailedPresenter to provided
      */
-    @Provides
-    fun provideDetailedPresenter(): DetailedContract.Presenter {
-        return DetailedPresenter()
-    }
+    //@Provides
+    //fun provideDetailedPresenter(): DetailedContract.Presenter {
+      //  return DetailedPresenter()
+    //}
 
     /**
      * Provides the HTTP connections for activity

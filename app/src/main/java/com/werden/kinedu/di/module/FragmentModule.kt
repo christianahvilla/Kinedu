@@ -1,6 +1,10 @@
 package com.werden.kinedu.di.module
 
 import com.werden.kinedu.api.ApiServiceInterface
+import com.werden.kinedu.ui.activity.ActivityContract
+import com.werden.kinedu.ui.activity.ActivityPresenter
+import com.werden.kinedu.ui.article.ArticleContract
+import com.werden.kinedu.ui.article.ArticlePresenter
 import dagger.Module
 import dagger.Provides
 
@@ -18,7 +22,7 @@ class FragmentModule {
      */
     @Provides
     fun provideActivityPresenter(): ActivityContract.Presenter {
-        return ActivityPresnser()
+        return ActivityPresenter()
     }
 
     /**
