@@ -1,6 +1,7 @@
 package com.werden.kinedu.di.component
 
 import com.werden.kinedu.di.module.DetailedModule
+import com.werden.kinedu.ui.article.detailed.DetailedActivity
 import dagger.Component
 
 
@@ -13,6 +14,6 @@ interface DetailedComponent {
      * Injects required dependencies into the specified Activity.
      * @param detailedActivity in which to inject the dependencies
      */
-    //fun inject(detailedActivity: DetailedActivity)
+    fun inject(detailedActivity: DetailedActivity)
 
 }

@@ -19,5 +19,6 @@
     <color name="deepBlue">#106FFE</color>
 
     <color name="blackOverlay">#66000000</color>
+    <color name="backgroundColor">#F0F0F0</color>
 
 </resources>

@@ -28,10 +28,6 @@ class ActivityFragment : Fragment(), ActivityContract.View {
 
     private lateinit var rootView: View
 
-    fun newInstance(): ActivityFragment {
-        return ActivityFragment()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         injectDependency()

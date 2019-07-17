@@ -1,5 +1,6 @@
 package com.werden.kinedu.ui.article
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
@@ -13,13 +14,14 @@ import com.werden.kinedu.di.module.FragmentModule
 import com.werden.kinedu.model.article.ArticleData
 import com.werden.kinedu.model.article.Articles
 import com.werden.kinedu.ui.activity.ActivityAdapter
+import com.werden.kinedu.ui.article.detailed.DetailedActivity
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.progress_bar.*
 import kotlinx.android.synthetic.main.recycler_view.*
 import javax.inject.Inject
 
 
-class ArticleFragment : Fragment(), ArticleContract.View {
+class ArticleFragment : Fragment(), ArticleContract.View, ArticleAdapter.onItemClickListener {
 
     @Inject
     lateinit var presenter: ArticleContract.Presenter
@@ -49,7 +51,7 @@ class ArticleFragment : Fragment(), ArticleContract.View {
     }
 
     override fun loadDataSuccess(list: Articles) {
-        var articleAdapter = ArticleAdapter(activity!!.applicationContext, list.data.articles.toMutableList())
+        var articleAdapter = ArticleAdapter(this,activity!!.applicationContext, list.data.articles.toMutableList())
         recycler_content!!.layoutManager = LinearLayoutManager(activity)
         recycler_content!!.adapter = articleAdapter
     }
@@ -62,9 +64,6 @@ class ArticleFragment : Fragment(), ArticleContract.View {
         articleComponent.inject(this)
     }
 
-    fun newInstance(): ArticleFragment {
-        return ArticleFragment()
-    }
 
     private fun initView() {
         presenter.loadData()
@@ -84,5 +83,11 @@ class ArticleFragment : Fragment(), ArticleContract.View {
 
     override fun showErrorMessage(error: String) {
         Toast.makeText(view?.context, ERROR, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun itemDetail(id: Int) {
+        val intent = Intent(activity, DetailedActivity::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 }
