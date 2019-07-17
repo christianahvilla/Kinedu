@@ -4,9 +4,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.text.util.Linkify
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import com.squareup.picasso.Picasso
 import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerDetailedComponent
@@ -14,6 +14,7 @@ import com.werden.kinedu.di.module.DetailedModule
 import com.werden.kinedu.model.detailed.Detailed
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.activity_article_detailed.*
+import kotlinx.android.synthetic.main.layout_share.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
@@ -56,10 +57,16 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
         Toast.makeText(this@DetailedActivity, ERROR, Toast.LENGTH_SHORT).show()
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun loadDataSuccess(articleDetailed: Detailed) {
         Picasso.get().load(articleDetailed.data.article.picture).fit().centerCrop().into(detailed_image)
-        detailed_text.text = (Html.fromHtml(articleDetailed.data.article.body, Html.FROM_HTML_MODE_COMPACT))
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            detailed_text.text = (Html.fromHtml(articleDetailed.data.article.body, Html.FROM_HTML_OPTION_USE_CSS_COLORS))
+        } else {
+            detailed_text.text = (Html.fromHtml(articleDetailed.data.article.body))
+        }
+
+        detailed_title.text = articleDetailed.data.article.title
     }
 
     private fun initView() {

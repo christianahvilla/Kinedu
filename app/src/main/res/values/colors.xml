@@ -17,8 +17,10 @@
     <color name="testColorBlue">#152b38</color>
     <color name="pink">#fe104d</color>
     <color name="deepBlue">#106FFE</color>
+    <color name="lightBlue">#10B3FE</color>
 
     <color name="blackOverlay">#66000000</color>
     <color name="backgroundColor">#F0F0F0</color>
+    <color name="linkColor">#D2D2D2</color>
 
 </resources>

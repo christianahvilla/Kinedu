@@ -15,8 +15,7 @@
         <ImageView
                 android:id="@+id/article_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_250sp"
-                android:layout_margin="@dimen/dimen_3sp"/>
+                android:layout_height="@dimen/dimen_250sp"/>
 
         <TextView
                 android:id="@+id/article_title"
