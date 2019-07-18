@@ -30,4 +30,5 @@ class HomeModule(private var activity: Activity) {
     fun provideHomePresenter(): HomeContract.Presenter {
         return HomePresenter()
     }
+
 }

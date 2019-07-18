@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+        android:id="@+id/article_layout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +15,7 @@
         <ImageView
                 android:id="@+id/article_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_250sp"
-                android:padding="@dimen/dimen_10sp"
-                android:layout_margin="@dimen/dimen_3sp"/>
+                android:layout_height="@dimen/dimen_250sp"/>
 
         <TextView
                 android:id="@+id/article_title"
