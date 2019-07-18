@@ -32,9 +32,9 @@ data class ActivityRelated(
     @SerializedName("age")
     val age: Int,
     @SerializedName("age_group")
-    val age_group: Int,
-    @SerializedName("video_provider_thumbnails")
-    val video_provider_thumbnails: List<String>,
+    val age_group: String,
+    //@SerializedName("video_provider_thumbnails")
+    //val video_provider_thumbnails: List<String>,
     @SerializedName("video_id")
     val video_id: String,
     @SerializedName("area_id")

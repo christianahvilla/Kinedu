@@ -14,19 +14,18 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
+            android:background="@color/deepBlue"
             android:minHeight="?attr/actionBarSize"
             app:tabMode="fixed"
             app:tabGravity="fill"
             app:tabTextColor="@color/primaryTextColor"
-            app:tabSelectedTextColor="@color/secondaryColor">
+            app:tabSelectedTextColor="@android:color/white">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
     </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

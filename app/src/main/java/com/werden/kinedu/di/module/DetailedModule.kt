@@ -2,6 +2,8 @@ package com.werden.kinedu.di.module
 
 import android.app.Activity
 import com.werden.kinedu.api.ApiServiceInterface
+import com.werden.kinedu.ui.article.detailed.DetailedContract
+import com.werden.kinedu.ui.article.detailed.DetailedPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -23,13 +25,13 @@ class DetailedModule(private var activity: Activity) {
     }
 
     /**
-     * Provides the Application DetailedActivity
-     * @return the DetailedPresenter to provided
+     * Provides the Application HomeActivity
+     * @return the HomePresenter to provided
      */
-    //@Provides
-    //fun provideDetailedPresenter(): DetailedContract.Presenter {
-      //  return DetailedPresenter()
-    //}
+    @Provides
+    fun provideDetailedPresenter(): DetailedContract.Presenter {
+        return DetailedPresenter()
+    }
 
     /**
      * Provides the HTTP connections for activity

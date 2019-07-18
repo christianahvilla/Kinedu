@@ -10,6 +10,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 
 /**
  * The interface which provides methods to get result of webservices
@@ -24,10 +25,11 @@ interface ApiServiceInterface {
     fun getArticles(): Observable<Articles>
 
     /**
-     * Get the list of the articles from the API
+     * Get the detail of an article from the API
      */
-    @GET("{id}")
-    fun getArticleDetailed(): Observable<Detailed>
+    @Headers("Authorization: $TOKEN")
+    @GET("articles/{id}")
+    fun getArticleDetailed(@Path("id") id: Int): Observable<Detailed>
 
     /**
      * Get the list of the articles from the API
