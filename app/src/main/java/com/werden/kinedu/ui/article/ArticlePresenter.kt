@@ -13,7 +13,7 @@ class ArticlePresenter: ArticleContract.Presenter {
     private val api: ApiServiceInterface = ApiServiceInterface.create()
 
     override fun loadData() {
-        var subscribe = api.getArticles().subscribeOn(Schedulers.io())
+        val subscribe = api.getArticles().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ listArticle: Articles? ->
                 view.showProgress(false)

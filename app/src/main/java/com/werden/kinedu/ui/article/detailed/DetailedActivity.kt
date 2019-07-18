@@ -12,6 +12,8 @@ import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerDetailedComponent
 import com.werden.kinedu.di.module.DetailedModule
 import com.werden.kinedu.model.detailed.Detailed
+import com.werden.kinedu.ui.home.HomeActivity
+import com.werden.kinedu.ui.home.HomeViewPager
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.activity_article_detailed.*
 import kotlinx.android.synthetic.main.layout_share.*
@@ -50,10 +52,8 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
     override fun showProgress(show: Boolean) {
         if (show) {
             progressBar.visibility = View.VISIBLE
-            detailed_share.visibility = View.GONE
         } else {
             progressBar.visibility = View.GONE
-            detailed_share.visibility = View.VISIBLE
         }
     }
 
@@ -63,6 +63,7 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
 
     override fun loadDataSuccess(articleDetailed: Detailed) {
         Picasso.get().load(articleDetailed.data.article.picture).fit().centerCrop().into(detailed_image)
+        detailed_share.visibility = View.VISIBLE
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             detailed_text.text = (Html.fromHtml(articleDetailed.data.article.body, Html.FROM_HTML_OPTION_USE_CSS_COLORS))
@@ -84,7 +85,6 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
         sendIntent.putExtra(Intent.EXTRA_TEXT, url)
         sendIntent.type = "text/plain"
         startActivity(Intent.createChooser(sendIntent, "Share Article"))
-
     }
 
     private fun initView() {

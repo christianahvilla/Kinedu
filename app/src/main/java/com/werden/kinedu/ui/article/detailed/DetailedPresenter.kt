@@ -14,7 +14,7 @@ class DetailedPresenter: DetailedContract.Presenter {
 
 
     override fun loadData(id: Int) {
-        var subscribe = api.getArticleDetailed(id).subscribeOn(Schedulers.io())
+        val subscribe = api.getArticleDetailed(id).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ detailed: Detailed ->
                 view.showProgress(false)

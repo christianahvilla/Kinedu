@@ -22,7 +22,8 @@
                 layout="@layout/layout_share"
                 android:layout_below="@+id/detailed_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
 
 
         <TextView

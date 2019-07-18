@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerFragmentComponent
 import com.werden.kinedu.di.module.FragmentModule
-import com.werden.kinedu.model.article.ArticleData
 import com.werden.kinedu.model.article.Articles
-import com.werden.kinedu.ui.activity.ActivityAdapter
 import com.werden.kinedu.ui.article.detailed.DetailedActivity
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.progress_bar.*
@@ -51,7 +49,7 @@ class ArticleFragment : Fragment(), ArticleContract.View, ArticleAdapter.onItemC
     }
 
     override fun loadDataSuccess(list: Articles) {
-        var articleAdapter = ArticleAdapter(this,activity!!.applicationContext, list.data.articles.toMutableList())
+        val articleAdapter = ArticleAdapter(this,activity!!.applicationContext, list.data.articles.toMutableList())
         recycler_content!!.layoutManager = LinearLayoutManager(activity)
         recycler_content!!.adapter = articleAdapter
     }
