@@ -50,8 +50,10 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
     override fun showProgress(show: Boolean) {
         if (show) {
             progressBar.visibility = View.VISIBLE
+            detailed_share.visibility = View.GONE
         } else {
             progressBar.visibility = View.GONE
+            detailed_share.visibility = View.VISIBLE
         }
     }
 
