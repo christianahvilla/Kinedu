@@ -47,7 +47,7 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
     */
 
     override fun showTabHost() {
-        var adapter = HomeViewPager(supportFragmentManager)
+        val adapter = HomeViewPager(supportFragmentManager)
         view_pager.adapter = adapter
 
         tab_layout.setupWithViewPager(view_pager)
@@ -62,16 +62,6 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         activityComponent.inject(this)
     }
 
-    override fun onBackPressed() {
-        val fragmentManager = supportFragmentManager
-        val fragment = fragmentManager.findFragmentByTag(ArticleFragment.TAG)
-
-        if (fragment == null) {
-            super.onBackPressed()
-        } else {
-            supportFragmentManager.popBackStack()
-        }
-    }
 
     enum class AnimType() {
         SLIDE,

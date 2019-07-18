@@ -16,11 +16,10 @@ class BaseApp: Application() {
         setup()
 
         if (BuildConfig.DEBUG) {
-            // Maybe TimberPlant etc.
         }
     }
 
-    fun setup() {
+    private fun setup() {
         component = DaggerApplicationComponent
             .builder()
             .applicationModule(ApplicationModule(this))
