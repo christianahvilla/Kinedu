@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.werden.kinedu.R
@@ -29,6 +30,10 @@ class ArticleFragment : Fragment(), ArticleContract.View, ArticleAdapter.onItemC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         injectDependency()
+
+        swipe_content.setOnRefreshListener {
+            initView()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,6 +57,13 @@ class ArticleFragment : Fragment(), ArticleContract.View, ArticleAdapter.onItemC
         val articleAdapter = ArticleAdapter(this,activity!!.applicationContext, list.data.articles.toMutableList())
         recycler_content!!.layoutManager = LinearLayoutManager(activity)
         recycler_content!!.adapter = articleAdapter
+        swipe_content.isRefreshing = false
+    }
+
+    private fun runLayoutAnimation() {
+        val controller= AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        recycler_content.layoutAnimation = controller
+        recycler_content.scheduleLayoutAnimation()
     }
 
     private fun injectDependency() {
@@ -61,7 +73,6 @@ class ArticleFragment : Fragment(), ArticleContract.View, ArticleAdapter.onItemC
             .build()
         articleComponent.inject(this)
     }
-
 
     private fun initView() {
         presenter.loadData()

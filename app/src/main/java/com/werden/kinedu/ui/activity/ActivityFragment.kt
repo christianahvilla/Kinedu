@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -13,10 +13,7 @@ import com.werden.kinedu.R
 import com.werden.kinedu.di.component.DaggerFragmentComponent
 import com.werden.kinedu.di.module.FragmentModule
 import com.werden.kinedu.model.activity.Activities
-import com.werden.kinedu.model.activity.ActivityData
 import com.werden.kinedu.utils.ERROR
-import kotlinx.android.synthetic.main.fragment_activity.view.*
-import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import kotlinx.android.synthetic.main.recycler_view.*
 import javax.inject.Inject
@@ -64,12 +61,16 @@ class ActivityFragment : Fragment(), ActivityContract.View {
     }
 
     override fun loadDataSuccess(list: Activities) {
-
-        var activityAdapter = ActivityAdapter(activity!!.applicationContext, list.data.activities.toMutableList())
+        val activityAdapter = ActivityAdapter(activity!!.applicationContext, list.data.activities.toMutableList())
         recycler_content!!.layoutManager = LinearLayoutManager(activity)
         recycler_content!!.adapter = activityAdapter
+        runLayoutAnimation()
+    }
 
-
+    private fun runLayoutAnimation() {
+        val controller= AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        recycler_content.layoutAnimation = controller
+        recycler_content.scheduleLayoutAnimation()
     }
 
     private fun injectDependency() {
@@ -80,6 +81,7 @@ class ActivityFragment : Fragment(), ActivityContract.View {
 
         activityComponent.inject(this)
     }
+
 
     private fun initView() {
         presenter.loadData()
