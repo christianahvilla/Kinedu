@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import android.text.util.Linkify
 import android.view.View
 import android.widget.Toast
 import com.squareup.picasso.Picasso
