@@ -16,10 +16,12 @@
             android:layout_height="wrap_content"
             android:background="@color/deepBlue"
             android:minHeight="?attr/actionBarSize"
+            app:tabMaxWidth="@dimen/dimen_0sp"
             app:tabMode="fixed"
             app:tabGravity="fill"
             app:tabTextColor="@color/primaryTextColor"
-            app:tabSelectedTextColor="@android:color/white">
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabIndicatorColor="@android:color/white">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
