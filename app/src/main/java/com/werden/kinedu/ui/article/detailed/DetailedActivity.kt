@@ -1,5 +1,6 @@
 package com.werden.kinedu.ui.article.detailed
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_article_detailed.*
 import kotlinx.android.synthetic.main.layout_share.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
+
+
 
 class DetailedActivity : AppCompatActivity(), DetailedContract.View {
 
@@ -67,6 +70,20 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
         }
 
         detailed_title.text = articleDetailed.data.article.title
+
+        detailed_share.setOnClickListener{
+            shareLink(articleDetailed.data.article.link)
+        }
+    }
+
+    private fun shareLink(url: String){
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Look at this great article")
+        sendIntent.putExtra(Intent.EXTRA_TEXT, url)
+        sendIntent.type = "text/plain"
+        startActivity(Intent.createChooser(sendIntent, "Share Article"))
+
     }
 
     private fun initView() {
