@@ -6,8 +6,6 @@
         android:layout_height="match_parent"
         android:background="@color/backgroundColor">
 
-    <include layout="@layout/progress_bar"/>
-
     <include layout="@layout/recycler_view"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

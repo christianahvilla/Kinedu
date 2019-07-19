@@ -16,8 +16,9 @@
     <color name="darkBlue">#23283a</color>
     <color name="testColorBlue">#152b38</color>
     <color name="pink">#fe104d</color>
-    <color name="deepBlue">#106FFE</color>
-    <color name="lightBlue">#10B3FE</color>
+    <color name="deepBlue">#165E96</color>
+    <color name="lightBlue">#1B75BB</color>
+    <color name="shareBlue">#1EACDE</color>
 
     <color name="blackOverlay">#66000000</color>
     <color name="backgroundColor">#F0F0F0</color>

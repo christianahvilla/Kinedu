@@ -20,13 +20,13 @@
                 android:label="@string/DetailedActivity"
                 android:name=".ui.article.detailed.DetailedActivity"
                 android:parentActivityName=".ui.home.HomeActivity"
-                android:configChanges="orientation">
+                android:screenOrientation="portrait">
         </activity>
         <activity
                 android:label="@string/HomeActivity"
                 android:name=".ui.home.HomeActivity"
                 android:theme="@style/Theme.AppCompat.NoActionBar"
-                android:configChanges="orientation">
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
