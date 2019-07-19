@@ -1,5 +1,5 @@
 # Kinedu
-Kinedu is a natie application to get data from an API
+Kinedu is a native application to get data from an API
 
 ### Built With
 * [MVP](https://es.wikipedia.org/wiki/MVP) - Model–view–presenter (MVP) is a derivation of the model–view–controller (MVC) architectural pattern, and is used mostly for building user interfaces
