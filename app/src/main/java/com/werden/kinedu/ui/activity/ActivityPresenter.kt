@@ -19,7 +19,9 @@ class ActivityPresenter: ActivityContract.Presenter{
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ listActivity: Activities? ->
                 view.showProgress(false)
-                listActivity?.let { view.loadDataSuccess(it) }
+                listActivity?.let {
+                    view.loadDataSuccess(it)
+                }
             }, { error ->
                 view.showProgress(false)
                 view.showErrorMessage(error.localizedMessage)

@@ -10,22 +10,10 @@
 
     <include layout="@layout/toolbar_layout"/>
 
-    <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/deepBlue"
-            android:minHeight="?attr/actionBarSize"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            app:tabTextColor="@color/primaryTextColor"
-            app:tabSelectedTextColor="@android:color/white">
-    </com.google.android.material.tabs.TabLayout>
+    <include layout="@layout/spinner_filter"/>
 
-    <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    </androidx.viewpager.widget.ViewPager>
+    <include layout="@layout/tab_layout"/>
+
+    <include layout="@layout/view_pager"/>
 
 </LinearLayout>

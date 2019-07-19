@@ -9,15 +9,14 @@ import android.view.View
 import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.werden.kinedu.R
-import com.werden.kinedu.di.component.DaggerDetailedComponent
-import com.werden.kinedu.di.module.DetailedModule
+import com.werden.kinedu.di.component.DaggerActivityComponent
+import com.werden.kinedu.di.module.ActivityModule
 import com.werden.kinedu.model.detailed.Detailed
-import com.werden.kinedu.ui.home.HomeActivity
-import com.werden.kinedu.ui.home.HomeViewPager
 import com.werden.kinedu.utils.ERROR
 import kotlinx.android.synthetic.main.activity_article_detailed.*
 import kotlinx.android.synthetic.main.layout_share.*
 import kotlinx.android.synthetic.main.progress_bar.*
+import kotlinx.android.synthetic.main.spinner_filter.*
 import javax.inject.Inject
 
 
@@ -42,11 +41,11 @@ class DetailedActivity : AppCompatActivity(), DetailedContract.View {
     }
 
     private fun injectDependency() {
-        val detailedComponent = DaggerDetailedComponent
+        val activityComponent = DaggerActivityComponent
             .builder()
-            .detailedModule(DetailedModule(this))
+            .activityModule(ActivityModule(this))
             .build()
-        detailedComponent.inject(this)
+        activityComponent.inject(this)
     }
 
     override fun showProgress(show: Boolean) {

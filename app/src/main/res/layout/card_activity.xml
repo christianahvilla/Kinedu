@@ -20,7 +20,7 @@
                 android:id="@+id/activity_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/deepBlue"
+                android:textColor="@color/shareBlue"
                 android:layout_gravity="center_vertical"
                 android:textSize="@dimen/dimen_16sp"
                 android:layout_toEndOf="@+id/activity_image"

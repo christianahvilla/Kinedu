@@ -5,10 +5,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.werden.kinedu.ui.activity.ActivityFragment
 import com.werden.kinedu.ui.article.ArticleFragment
+import android.R
+
+
 
 class HomeViewPager(fm: FragmentManager): FragmentPagerAdapter(fm) {
 
-    override fun getItem( position: Int): Fragment {
+
+    override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
                 ActivityFragment()
